@@ -1,4 +1,4 @@
-# 카봇 숫자 대모험: 작업 메모
+# 카봇 놀이 대모험: 작업 메모
 
 - 게임 파일: `index.html` (전체 HTML 문서). 아티팩트 링크: https://claude.ai/artifact/Q9BqcZFNkmVtmH7HjsqRLZ
   - 아티팩트로 올릴 때는 `index.html`에서 맨 앞 `<!doctype html>…<body>` 7줄과 맨 끝 `</body></html>`을 뺀 내용을 올린다. 같은 링크에 새 버전으로 올리려면 Artifact 도구에 `url`을 넘긴다.
@@ -9,3 +9,8 @@
 - 보스전 펜타스톰은 사진 대신 만화풍 SVG(`pentaToon`)를 쓴다(사용자 요청). 필살기는 판마다 다르다(`SPECIALS`): 1판 펜타 무지개 빔, 2판 카봇 미사일 연발, 3판 천둥 번개 검. 공통 기 모으기 연출은 `finisher()`. 로봇 움직임: SVG를 `.t-legs/.t-upper/.t-arml/.t-armr/.t-head`로 나눠 CSS로 숨쉬기·눈 깜빡임, 연타 때 좌우 주먹(`punch-l/r`), 필살기 자세(`pose-beam/missile/sword`).
 - 도로 주행 장면은 위에서 본 차 그림(`carTop`)을 그대로 쓴다.
 - 테스트: Playwright로 처음부터 보스 승리까지 자동으로 플레이한다(문제 정답은 `state.items`에서 읽음).
+- 놀이 3가지(`MODULES`): 숫자(도로 달리기, `style:'road'`), 한글(떨어지는 풍선 받기, `style:'balloon'`), 색깔(스키 타고 깃발 지나가기, `style:'ski'`). 화면 모양은 `#play`에 붙는 클래스(road/balloon/ski)로 CSS가 바꾸고, 문이 내려오는 높이는 `GATE_TRAVEL`에 있다. 풍선 모드는 옆모습 차(`carSide`), 스키 모드는 위에서 본 차에 스키(`.skis`)를 붙인다.
+  - 한글 5판: 똑같은 글자 → 듣고 글자 찾기 → 그림 첫 글자 → 빈칸 글자 → 그림 보고 낱말 읽기. 색깔 5판: 똑같은 색 → 색 이름 듣고 찾기 → 물건 색 → 카봇 색(에이스·스카이·스톰) → 두 색 섞기.
+  - 같은 판에서 문제가 겹치지 않게 `draw(key, arr)`로 뽑는다. 조사는 `josa()`가 받침을 보고 고른다.
+- 보스 필살기는 놀이마다 다르다(`SPECIAL_SETS`): 숫자 `SPECIALS`, 한글 `HANGUL_SPECIALS`(가나다 글자 폭탄 / 풍선 펑펑 폭탄 / 로켓 주먹 발사), 색깔 `COLOR_SPECIALS`(물감 대포 발사 / 데굴데굴 눈덩이 / 꽁꽁 얼음 폭풍). 새 자세는 `pose-rocket`, `pose-spin`.
+- 게임 제목은 놀이가 늘어서 "카봇 놀이 대모험"으로 바꿨다.
