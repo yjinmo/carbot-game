@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </head>
 <body>
-<title>카봇 숫자 대모험</title>
+<title>카봇 놀이 대모험</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap">
@@ -262,6 +262,79 @@ h1,h2{font-family:var(--font-display);font-weight:400;margin:0;text-wrap:balance
 .confetti{position:absolute;top:-6cqw;font-size:4cqw;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(90cqw) rotate(540deg)}}
 
+/* ---------- 한글 놀이: 떨어지는 풍선 받기 ---------- */
+#play.balloon{background:
+  radial-gradient(ellipse 8cqw 3cqw at 10% 44cqw,#fff 92%,transparent),
+  radial-gradient(ellipse 6cqw 2.4cqw at 15% 41cqw,#fff 92%,transparent),
+  radial-gradient(ellipse 9cqw 3.2cqw at 90% 52cqw,#fff 92%,transparent),
+  radial-gradient(ellipse 6cqw 2.4cqw at 86% 49cqw,#fff 92%,transparent),
+  linear-gradient(#5db6ff,#cdeeff 71cqw,var(--grass) 71cqw)}
+#play.balloon .bush,#play.balloon .dash{display:none}
+#play.balloon #road{background:none;border-color:transparent}
+#play.balloon #car{width:15cqw}
+#play.balloon .g{width:13cqw;height:15cqw;margin-left:1cqw;border-radius:50% 50% 46% 46%/56% 56% 44% 44%;overflow:visible;
+  background:radial-gradient(circle at 32% 28%,#ffffffb0 0 11%,transparent 12%),var(--bc);
+  animation:sway 1.4s ease-in-out infinite alternate;transform-origin:50% 140%}
+#play.balloon .g::before{left:50%;right:auto;top:100%;width:.3cqw;height:7cqw;margin-left:-.15cqw;background:var(--ink);opacity:.7}
+#play.balloon .g::after{content:"";position:absolute;left:50%;top:calc(100% - .6cqw);margin-left:-1cqw;border:1cqw solid transparent;border-bottom:1.2cqw solid var(--bc);border-top:0}
+#play.balloon .g .num{margin-top:0;color:#fff;-webkit-text-stroke:.4cqw var(--ink);paint-order:stroke fill}
+#play.balloon .g.hit{background:radial-gradient(circle at 32% 28%,#ffffffb0 0 11%,transparent 12%),var(--bc);animation:caught .6s cubic-bezier(.2,1.6,.4,1) forwards}
+#play.balloon .g.miss{animation:popb .3s ease-out forwards}
+@keyframes sway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes caught{50%{transform:scale(1.3)}100%{transform:scale(1.15) translateY(3cqw)}}
+@keyframes popb{60%{transform:scale(1.5);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.wd{font-family:var(--font-display);font-size:4.2cqw;line-height:1;color:#fff;-webkit-text-stroke:.3cqw var(--ink);paint-order:stroke fill;white-space:nowrap}
+.blank{display:inline-grid;place-items:center;min-width:1em;padding-inline:.1em;border:.35cqw dashed var(--hot);border-radius:1cqw;color:var(--hot);text-decoration:none}
+.hl{color:var(--hot)}
+#visual .photo{height:15cqw;width:auto}
+
+/* ---------- 색깔 놀이: 스키 타기 ---------- */
+#play.ski{background:linear-gradient(#8fd0ff,#e6f6ff 30cqw,#f7fcff 30cqw)}
+#play.ski .bush{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 120'%3E%3Cpath d='M40 6 L62 50 H52 L72 88 H8 L28 50 H18Z' fill='%232f8f5b' stroke='%231d2340' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M40 6 L52 30 L45 27 L40 34 L35 27 L28 30Z' fill='white'/%3E%3Crect x='35' y='88' width='10' height='14' fill='%236b4a2a'/%3E%3C/svg%3E") 0 0/8cqw 12cqw}
+#play.ski #road{background:linear-gradient(90deg,#dceefc,#fff 18%,#fff 82%,#dceefc);border-color:#bfe0f7}
+#play.ski .dash{width:.5cqw;margin-left:-.25cqw;background:repeating-linear-gradient(#bfdcf2 0 7cqw,transparent 7cqw 9cqw)}
+#play.ski .g{background:none;border:none;overflow:visible}
+#play.ski .g::before{display:none}
+#play.ski .g.hit{background:none}
+.flag{position:relative;display:block;width:13cqw;height:11cqw}
+.flag::before,.flag::after{content:"";position:absolute;bottom:0;width:.9cqw;height:11cqw;box-sizing:border-box;border:.25cqw solid var(--ink);border-radius:.5cqw;background:repeating-linear-gradient(var(--c) 0 1.5cqw,#fff 1.5cqw 2.4cqw)}
+.flag::before{left:0}.flag::after{right:0}
+.flag i{position:absolute;left:.9cqw;right:.9cqw;top:.6cqw;height:6.4cqw;background:linear-gradient(#ffffff55,transparent 40%),var(--c);border:.35cqw solid var(--ink);border-radius:.4cqw .4cqw 2cqw 2cqw}
+.flag i::after{content:"";position:absolute;left:50%;top:50%;width:2.6cqw;height:2.6cqw;margin:-1.3cqw 0 0 -1.3cqw;border-radius:50%;background:#ffffff88}
+#play.ski #car .skis{position:absolute;top:-2.5cqw;bottom:-2.5cqw;width:1.8cqw;border-radius:1.2cqw 1.2cqw .4cqw .4cqw;background:linear-gradient(90deg,#c62828,#ff6a5c);border:.25cqw solid var(--ink);box-sizing:border-box}
+#play.ski #car .skis.l{left:.6cqw}#play.ski #car .skis.r{right:.6cqw}
+#play.ski #car{bottom:3.5cqw}
+#play.ski #car svg{position:relative}
+#play.ski #car.boost{filter:drop-shadow(0 1.5cqw 0 #ffffffee) drop-shadow(0 1.5cqw .6cqw #9fd6ff)}
+.swatch{display:inline-block;width:12cqw;height:12cqw;border-radius:46% 54% 50% 50%/55% 45% 55% 45%;background:radial-gradient(circle at 34% 30%,#ffffffa0 0 13%,transparent 14%),var(--c);border:.45cqw solid var(--ink);vertical-align:middle}
+.swatch.sm{width:9cqw;height:9cqw}
+
+/* ---------- 한글·색깔 보스 필살기 ---------- */
+.letterbomb{position:absolute;width:7cqw;height:7cqw;margin:-3.5cqw 0 0 -3.5cqw;display:grid;place-items:center;font-family:var(--font-display);font-size:6.4cqw;line-height:1;color:var(--c);-webkit-text-stroke:.35cqw var(--ink);paint-order:stroke fill;text-shadow:0 0 1.5cqw #fff;pointer-events:none;z-index:3;animation:missile .6s cubic-bezier(.5,0,.8,.6) forwards}
+.bfly{position:absolute;width:5.5cqw;height:6.5cqw;margin:-3.25cqw 0 0 -2.75cqw;border-radius:50% 50% 46% 46%/56% 56% 44% 44%;background:radial-gradient(circle at 32% 28%,#ffffffb0 0 12%,transparent 13%),var(--c);border:.3cqw solid var(--ink);pointer-events:none;z-index:3;animation:bfly 1s ease-in-out forwards}
+.bfly::after{content:"";position:absolute;left:50%;top:100%;width:.25cqw;height:3cqw;background:var(--ink)}
+@keyframes bfly{0%{transform:translate(0,0) scale(.3)}30%{transform:translate(calc(var(--x)*.3),calc(var(--y)*.3 - 7cqw)) scale(1)}65%{transform:translate(calc(var(--x)*.7),calc(var(--y)*.7 + 4cqw)) scale(1)}100%{transform:translate(var(--x),var(--y)) scale(1.25)}}
+.rocket{position:absolute;width:15cqw;height:6.4cqw;margin:-3.2cqw 0 0 -7.5cqw;pointer-events:none;z-index:3;animation:rocket .7s cubic-bezier(.6,0,.9,.5) forwards}
+.rocket svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 1cqw #ff9a00)}
+@keyframes rocket{0%{transform:translate(0,0) scale(.4)}80%{opacity:1;transform:translate(var(--x),var(--y)) scale(1.25)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.6)}}
+.paint{position:absolute;width:5cqw;height:5cqw;margin:-2.5cqw 0 0 -2.5cqw;border-radius:50% 45% 55% 40%;background:radial-gradient(circle at 35% 30%,#ffffffa0 0 15%,transparent 16%),var(--c);border:.3cqw solid var(--ink);pointer-events:none;z-index:3;animation:missile .6s cubic-bezier(.5,0,.8,.6) forwards}
+.splat{position:absolute;width:9cqw;height:8cqw;margin:-4cqw 0 0 -4.5cqw;background:var(--c);border-radius:40% 60% 55% 45%/50% 40% 60% 50%;box-shadow:3cqw 2cqw 0 -2.4cqw var(--c),-3.4cqw -1cqw 0 -2.6cqw var(--c),1cqw -3.6cqw 0 -2.8cqw var(--c);pointer-events:none;z-index:3;animation:splat 1.4s ease-out forwards}
+@keyframes splat{0%{transform:scale(.2)}15%{transform:scale(1.15)}25%,75%{transform:scale(1);opacity:.95}100%{transform:scale(1);opacity:0}}
+#snowball{position:absolute;left:16cqw;bottom:46cqw;width:12cqw;height:12cqw;margin-left:-6cqw;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 38%,#d6ecff 68%,#9cc7ec);border:.45cqw solid var(--ink);box-sizing:border-box;pointer-events:none;z-index:3;opacity:0}
+#snowball::before{content:"";position:absolute;inset:22%;border-radius:50%;border:.4cqw dashed #9cc7ec}
+#snowball.go{animation:snowball 1.5s cubic-bezier(.5,0,.6,1) forwards}
+@keyframes snowball{0%{opacity:1;transform:translateY(2cqw) scale(.1)}40%{opacity:1;transform:translateY(-1cqw) scale(1)}55%{transform:translateY(-3cqw) scale(1.05)}100%{opacity:1;transform:translate(66cqw,19cqw) scale(1.6) rotate(720deg)}}
+.flake{position:absolute;font-size:4cqw;line-height:1;margin:-2cqw 0 0 -2cqw;pointer-events:none;z-index:4;animation:flake .8s ease-in forwards}
+@keyframes flake{from{transform:translate(0,0) rotate(0) scale(.5)}to{transform:translate(var(--x),var(--y)) rotate(360deg) scale(1.2)}}
+#villain.frozen{animation:none;filter:saturate(.2) brightness(1.4) sepia(1) hue-rotate(160deg) drop-shadow(0 0 2cqw #8ff6ff)}
+#boss .robot.pose-rocket .toon{transform:translateX(3cqw) rotate(8deg) scaleY(.94)}
+#boss .robot.pose-rocket .t-arml{animation:none;transform:rotate(95deg)}
+#boss .robot.pose-rocket .t-armr{animation:none;transform:rotate(-95deg)}
+#boss .robot.pose-spin .t-arml{animation:none;transform:rotate(165deg)}
+#boss .robot.pose-spin .t-armr{animation:none;transform:rotate(-165deg)}
+#boss .robot.pose-spin .toon{animation:twirl .45s linear infinite}
+@keyframes twirl{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
+
 /* ---------- touch pad ---------- */
 #pad{display:none;grid-template-columns:repeat(3,64px);grid-template-rows:repeat(2,58px);gap:6px}
 @media (pointer:coarse){#pad{display:grid}}
@@ -280,7 +353,7 @@ h1,h2{font-family:var(--font-display);font-weight:400;margin:0;text-wrap:balance
 
 <div id="game">
   <section class="scene" id="title">
-    <div class="logo">카봇 <span>숫자</span><br>대모험</div>
+    <div class="logo">카봇 <span>놀이</span><br>대모험</div>
     <div class="hero" id="title-robot"></div>
     <p class="blink">아무 화살표나 누르면 시작!</p>
     <small>컴퓨터에서는 화면을 한 번 누른 다음 화살표 키를 눌러요</small>
@@ -316,7 +389,7 @@ h1,h2{font-family:var(--font-display);font-weight:400;margin:0;text-wrap:balance
       <div id="car"></div>
     </div>
     <div id="ctl-left"><span class="key">↓</span> 다시 듣기</div>
-    <div id="ctl"><span><span class="key">←</span><span class="key">→</span> 길 바꾸기</span><span><span class="key">↑</span> 빨리 가기</span></div>
+    <div id="ctl"><span><span class="key">←</span><span class="key">→</span> <span id="ctl-move">길 바꾸기</span></span><span><span class="key">↑</span> <span id="ctl-fast">빨리 가기</span></span></div>
     <div id="clear" hidden><div class="big" id="clear-car"></div><h1 id="clear-title"></h1></div>
   </section>
 
@@ -338,6 +411,7 @@ h1,h2{font-family:var(--font-display);font-weight:400;margin:0;text-wrap:balance
     <div id="beam"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
     <div id="special" hidden><span>펜타스톰</span><br><span>필살기!</span></div>
     <div id="sword"></div>
+    <div id="snowball"></div>
     <div id="flash"></div>
     <div id="gaugebox">
       <div class="lab">필살기 파워! 화살표를 빨리빨리 눌러!</div>
@@ -363,7 +437,7 @@ h1,h2{font-family:var(--font-display);font-weight:400;margin:0;text-wrap:balance
 
 <script>
 /*
- * 카봇 숫자 대모험
+ * 카봇 놀이 대모험 (숫자 · 한글 · 색깔)
  * 조작은 화살표 키(또는 터치 화살표 버튼)만 씁니다.
  *
  * ── 새 학습(한글, 색깔 등) 추가하는 법 ──────────────────────────
@@ -467,13 +541,153 @@ function addQ(){
   };
 }
 
+/* ---------- 한글 놀이 (풍선 받기) ---------- */
+const hasBatchim = w => { const c = w.charCodeAt(w.length-1) - 0xAC00; return c >= 0 && c < 11172 && c % 28 !== 0; };
+const josa = (w, a, b) => w + (hasBatchim(w) ? a : b);   // josa('당근','은','는') → 당근은 (받침 있으면 a, 없으면 b)
+const bags = {};
+function draw(key, arr){ if(!bags[key] || !bags[key].length) bags[key] = shuffle(arr); return bags[key].pop(); }
+function threeOf(ans, pool){
+  const others = shuffle(pool.filter(x=>x!==ans)).slice(0,2);
+  const items = shuffle([ans, ...others]);
+  return {items, answer: items.indexOf(ans)};
+}
+const SYL = ['가','나','다','라','마','바','사','아','자','카','타','파','하'];
+const SYL_WORD = {가:['🎒','가방'], 나:['🦋','나비'], 다:['🐿️','다람쥐'], 라:['🍜','라면'], 마:['🎤','마이크'], 바:['🍌','바나나'],
+  사:['🦁','사자'], 아:['👶','아기'], 자:['🚗','자동차'], 카:['📷','카메라'], 파:['🌊','파도'], 하:['🦛','하마']};
+const WORDS = [['🦁','사자'],['🐘','코끼리'],['🐰','토끼'],['🦒','기린'],['🍇','포도'],['🍌','바나나'],['🌳','나무'],['🦆','오리'],
+  ['🦊','여우'],['🦛','하마'],['🥛','우유'],['🚂','기차'],['⏰','시계'],['🍕','피자'],['🐳','고래'],['🦋','나비'],['🚗','자동차'],['🐢','거북이']];
+const ALL_SYL = [...new Set([...SYL, ...WORDS.flatMap(([,w])=>[...w])])];
+const letterChoice = l => `<span class="num">${l}</span>`;
+const pic = e => `<span style="font-size:10cqw;line-height:1">${e}</span>`;
+
+function matchLetterQ(){
+  const L = draw('match', SYL), c = threeOf(L, SYL);
+  return {
+    say:`${L}! 똑같은 글자 풍선을 받아!`, text:`똑같은 글자를 찾아!<small>모양을 잘 보고 풍선을 받아!</small>`,
+    visual:`<div class="word">${L}</div>`, help:null,
+    hint:`${L}! 모양을 잘 봐!`, praise:`딩동댕! ${L}!`,
+    choices: c.items.map(letterChoice), answer: c.answer,
+  };
+}
+function listenLetterQ(){
+  const L = draw('listen', Object.keys(SYL_WORD)), [e,w] = SYL_WORD[L], c = threeOf(L, SYL);
+  return {
+    say:`${L}! ${w}의 ${L}! ${L}를 찾아!`, text:`잘 듣고 글자를 찾아!<small>모르겠으면 ↓ 를 눌러 다시 들어!</small>`,
+    visual:`${pic(e)}<div class="word">🔊</div>`, help:`${pic(e)}<div class="word"><span class="hl">${w[0]}</span>${w.slice(1)}</div>`,
+    hint:`${w}의 ${L}! 첫 글자를 봐!`, praise:`맞아! ${w}의 ${L}!`,
+    choices: c.items.map(letterChoice), answer: c.answer,
+  };
+}
+function blankQ(first){
+  const [e,w] = draw(first?'first':'blank', WORDS), sy = [...w];
+  const i = first ? 0 : rand(1, sy.length-1), L = sy[i];
+  const c = threeOf(L, ALL_SYL.filter(x=>!sy.includes(x)).concat(L));
+  const shown = sy.map((x,k)=>k===i?'<span class="blank">?</span>':x).join('');
+  return {
+    say: first ? `${w}! ${w}의 첫 글자는 뭘까?` : `${w}! 빈칸에 들어갈 글자는 뭘까?`,
+    text:`${first?'첫 글자':'빈칸 글자'}를 찾아!<small>그림 이름을 생각해 봐!</small>`,
+    visual:`${pic(e)}<div class="word">${shown}</div>`,
+    help:`${pic(e)}<div class="word">${sy.map((x,k)=>k===i?`<span class="hl">${x}</span>`:x).join('')}</div>`,
+    hint:`${w}! ${L}! 잘 들어 봐!`, praise:`딩동댕! ${w}!`,
+    choices: c.items.map(letterChoice), answer: c.answer,
+  };
+}
+function readWordQ(){
+  const [e,w] = draw('read', WORDS), c = threeOf(w, WORDS.map(x=>x[1]));
+  return {
+    say:'이건 뭘까? 맞는 이름 풍선을 받아!', text:`이건 뭘까?<small>이름이 쓰인 풍선을 받아!</small>`,
+    visual: pic(e), help:`${pic(e)}<div class="word"><span class="hl">${w[0]}</span>${'?'.repeat(w.length-1)}</div>`,
+    hint:`첫 글자는 ${w[0]}! ${w[0]}로 시작하는 풍선을 찾아!`, praise:`맞아! ${w}!`,
+    choices: c.items.map(x=>`<span class="wd">${x}</span>`), answer: c.answer,
+  };
+}
+
+/* ---------- 색깔 놀이 (스키 타기) ---------- */
+const COLORS = [
+  {n:'빨강', a:'빨간색', c:'#e53935', things:[['🍎','사과'],['🍓','딸기'],['🚒','소방차']]},
+  {n:'주황', a:'주황색', c:'#fb8c00', things:[['🥕','당근'],['🍊','귤']]},
+  {n:'노랑', a:'노란색', c:'#fdd835', things:[['🍌','바나나'],['🐥','병아리']]},
+  {n:'초록', a:'초록색', c:'#43a047', things:[['🐸','개구리'],['🥦','브로콜리'],['🍀','네잎클로버']]},
+  {n:'파랑', a:'파란색', c:'#1e88e5', things:[['🐳','고래'],['💧','물방울']]},
+  {n:'보라', a:'보라색', c:'#8e24aa', things:[['🍇','포도'],['🍆','가지']]},
+  {n:'분홍', a:'분홍색', c:'#f06292', things:[['🐷','돼지'],['🌸','벚꽃']]},
+];
+const COLOR = Object.fromEntries(COLORS.map(x=>[x.n,x]));
+const swatch = (x, sm='') => `<span class="swatch ${sm}" style="--c:${x.c}"></span>`;
+const flag = x => `<span class="flag" style="--c:${x.c}"><i></i></span>`;
+function colorChoices(ans, pool=COLORS){
+  const c = threeOf(ans, pool);
+  return {choices: c.items.map(flag), answer: c.answer};
+}
+function matchColorQ(){
+  const basic = ['빨강','노랑','파랑','초록'].map(n=>COLOR[n]), x = draw('cmatch', basic);
+  return {
+    say:`${x.a}! 똑같은 색깔 깃발로 가자!`, text:`똑같은 색을 찾아!<small>깃발 사이로 슝 지나가자!</small>`,
+    visual: swatch(x), help:null,
+    hint:`${x.a}! 똑같은 색을 잘 찾아 봐!`, praise:`딩동댕! ${x.a}!`,
+    ...colorChoices(x, basic),
+  };
+}
+function nameColorQ(){
+  const x = draw('cname', COLORS);
+  return {
+    say:`${x.a}을 찾아! ${x.a} 깃발로 가자!`, text:`<b style="font-size:5cqw">${x.a}</b>은 어디?<small>잘 듣고 깃발을 찾아!</small>`,
+    visual:`<div class="word">🎨</div>`, help: swatch(x),
+    hint:`${x.a}은 이런 색이야!`, praise:`맞아! ${x.a}!`,
+    ...colorChoices(x),
+  };
+}
+function thingColorQ(){
+  const x = draw('cthing', COLORS), [e,t] = pick(x.things);
+  return {
+    say:`${josa(t,'은','는')} 무슨 색일까?`, text:`${josa(t,'은','는')} 무슨 색?<small>맞는 색깔 깃발로 가자!</small>`,
+    visual: pic(e), help:`${pic(e)}${swatch(x,'sm')}`,
+    hint:`${josa(t,'은','는')} ${x.a}이야!`, praise:`딩동댕! ${josa(t,'은','는')} ${x.a}!`,
+    ...colorChoices(x),
+  };
+}
+function carbotColorQ(){
+  const [id, cn] = draw('ccar', [['ace','빨강'],['sky','주황'],['storm','파랑']]);
+  const cb = CARBOTS.find(c=>c.id===id), x = COLOR[cn];
+  return {
+    say:`${cb.name} 카봇은 무슨 색일까?`, text:`${cb.name} 카봇은 무슨 색?<small>카봇 색깔 깃발로 가자!</small>`,
+    visual: carSVG(cb), help:`${carSVG(cb)}${swatch(x,'sm')}`,
+    hint:`${josa(cb.name,'은','는')} ${x.a}이야!`, praise:`맞아! ${josa(cb.name,'은','는')} ${x.a}!`,
+    ...colorChoices(x),
+  };
+}
+function mixColorQ(){
+  const [p,q,r] = draw('cmix', [['빨강','노랑','주황'],['파랑','노랑','초록'],['빨강','파랑','보라']]).map(n=>COLOR[n]);
+  return {
+    say:`${p.a}이랑 ${q.a}을 섞으면 무슨 색이 될까?`, text:`두 색을 섞으면?<small>물감 마법! 새 색깔 깃발로 가자!</small>`,
+    visual:`${swatch(p,'sm')}<span class="plus">+</span>${swatch(q,'sm')}<span class="plus">=</span><span class="word">?</span>`,
+    help:`${swatch(p,'sm')}<span class="plus">+</span>${swatch(q,'sm')}<span class="plus">=</span>${swatch(r,'sm')}`,
+    hint:`${p.a}이랑 ${q.a}을 섞으면 ${r.a}이 돼!`, praise:`딩동댕! ${r.a}!`,
+    ...colorChoices(r, COLORS.filter(x=>x!==p && x!==q)),
+  };
+}
+
+/*
+ * style: 놀이 화면 모양 — road(도로 달리기) / balloon(떨어지는 풍선 받기) / ski(스키 타고 깃발 지나가기)
+ * how: 첫 카봇 소개 때 읽어 줄 조작 설명, ctl: 화면 오른쪽 아래 조작 안내
+ * specials: 보스전 필살기 묶음 이름 (SPECIAL_SETS)
+ */
 const MODULES = [
-  { id:'numbers', title:'숫자 놀이', icon:'123', ready:true, questionsPerStage:3,
+  { id:'numbers', title:'숫자 놀이', icon:'123', ready:true, questionsPerStage:3, style:'road',
+    how:'왼쪽 오른쪽 화살표로 길을 바꿔서 정답으로 달려 가자!', ctl:['길 바꾸기','빨리 가기'],
     makeQuestion(stage){
       return [()=>countQ(3), ()=>countQ(5), wordQ, mostQ, addQ][stage]();
     } },
-  { id:'hangul', title:'한글 놀이', icon:'가나', ready:false },
-  { id:'colors', title:'색깔 놀이', icon:'🎨', ready:false },
+  { id:'hangul', title:'한글 놀이', icon:'가나', ready:true, questionsPerStage:3, style:'balloon',
+    how:'왼쪽 오른쪽 화살표로 움직여서 정답 풍선을 받아 보자!', ctl:['움직이기','빨리 떨어져라'],
+    makeQuestion(stage){
+      return [matchLetterQ, listenLetterQ, ()=>blankQ(true), ()=>blankQ(false), readWordQ][stage]();
+    } },
+  { id:'colors', title:'색깔 놀이', icon:'🎨', ready:true, questionsPerStage:3, style:'ski',
+    how:'스키 타고 출발! 왼쪽 오른쪽 화살표로 움직여서 정답 색깔 깃발 사이로 지나가자!', ctl:['움직이기','빨리 내려가기'],
+    makeQuestion(stage){
+      return [matchColorQ, nameColorQ, thingColorQ, carbotColorQ, mixColorQ][stage]();
+    } },
 ];
 
 /* ---------- 그림 ---------- */
@@ -839,7 +1053,7 @@ function renderTeam(el, size){
 }
 
 /* select */
-function enterSelect(){ drawCards(); say('무슨 놀이를 할까? 숫자 놀이를 골라 봐!'); }
+function enterSelect(){ drawCards(); say('무슨 놀이를 할까? 화살표로 골라 봐!'); }
 function drawCards(){
   $('cards').innerHTML = MODULES.map((m,i)=>`<div class="card ${m.ready?'':'off'} ${i===state.moduleIdx?'sel':''}"><div class="ico">${m.icon}</div><div class="nm">${m.title}</div><div class="st">${m.ready?'준비 완료!':'곧 나와요'}</div></div>`).join('');
 }
@@ -853,7 +1067,7 @@ function enterIntro(){
   renderTeam($('intro-team'));
   SFX.join();
   say(state.stage===0
-    ? `헬로 ${c.name} 카봇! 왼쪽 오른쪽 화살표로 길을 바꿔서 정답으로 달려 가자!`
+    ? `헬로 ${c.name} 카봇! ${mod().how}`
     : `헬로 ${c.name} 카봇!`);
   state.inputAt = performance.now() + 1200;
   later(()=>{ if(state.scene==='intro') goto('play'); }, 9000);
@@ -861,8 +1075,10 @@ function enterIntro(){
 
 /* play */
 function enterPlay(){
-  const c = CARBOTS[state.stage];
-  $('car').innerHTML = carTop(c);
+  const c = CARBOTS[state.stage], st = mod().style;
+  $('play').className = 'scene ' + st;
+  $('car').innerHTML = st==='balloon' ? carSide(c) : st==='ski' ? `<i class="skis l"></i><i class="skis r"></i>${carTop(c)}` : carTop(c);
+  [$('ctl-move').textContent, $('ctl-fast').textContent] = mod().ctl;
   $('clear').hidden = true;
   state.qi = 0; state.lane = 1; placeCar();
   renderTeam($('hud-team'));
@@ -870,7 +1086,7 @@ function enterPlay(){
   nextQuestion();
 }
 function updateStars(){ $('stars').textContent = `⭐ ${state.stars}`; }
-function placeCar(){ $('car').style.left = (state.lane*20 + 5.5) + 'cqw'; }
+function placeCar(){ $('car').style.left = (state.lane*20 + (mod().style==='balloon' ? 2.5 : 5.5)) + 'cqw'; }
 function nextQuestion(){
   const q = mod().makeQuestion(state.stage);
   state.q = q;
@@ -883,8 +1099,9 @@ function nextQuestion(){
 }
 function spawnGates(delay){
   state.gateOn = false; state.gateT = 0;
-  const g = $('gates'); g.style.top = '0cqw';
-  g.innerHTML = state.items.map((it,i)=>`<div class="g ${it.tried?'tried':''}" style="left:${i*20+2.5}cqw">${it.html}</div>`).join('');
+  const g = $('gates'); g.style.top = gateTravel()[0] + 'cqw';
+  const hues = shuffle(['#ff6b8b','#ffa62b','#4fc3f7','#9ccc65','#b388ff','#ff8a65']);
+  g.innerHTML = state.items.map((it,i)=>`<div class="g ${it.tried?'tried':''}" style="left:${i*20+2.5}cqw;--bc:${hues[i]}">${it.html}</div>`).join('');
   later(()=>{ state.gateOn = true; }, delay);
 }
 function resolveGate(){
@@ -897,6 +1114,7 @@ function resolveGate(){
     later(()=>{ state.qi < mod().questionsPerStage ? nextQuestion() : stageClear(); }, 2400);
   }else{
     it.tried = true; el.classList.add('miss'); SFX.wrong();
+    if(mod().style==='balloon'){ tone(900,.08,'square',.06,0,200); popAt('펑!', state.lane*20 + 26, 50); }
     const car = $('car'); car.classList.remove('shake'); void car.offsetWidth; car.classList.add('shake');
     if(state.q.help) $('visual').innerHTML = state.q.help;
     say(`괜찮아! ${state.q.hint}`);
@@ -907,10 +1125,11 @@ function resolveGate(){
     }, 2200);
   }
 }
-function popStar(){
+function popStar(){ popAt('⭐', state.lane*20 + 27, 52); }
+function popAt(text, x, y){
   const p = document.createElement('div');
-  p.className = 'pop'; p.textContent = '⭐';
-  p.style.left = (state.lane*20 + 27) + 'cqw'; p.style.top = '52cqw';
+  p.className = 'pop'; p.textContent = text;
+  p.style.left = x + 'cqw'; p.style.top = y + 'cqw';
   $('play').appendChild(p); setTimeout(()=>p.remove(), 1100);
 }
 function stageClear(){
@@ -983,11 +1202,11 @@ function fx(cls, x, y, extra={}){
 }
 /* 보스 판마다 다른 필살기. go()는 발사 연출을 하고 명중 시각(ms)을 돌려준다 */
 const VX = 82, VY = 33;   // 블랙 위저드 가운데 (cqw, 아래에서)
-function hitFx(x=VX, y=VY, big=true){
+function hitFx(x=VX, y=VY, big=true, icons=['⭐','✨','💥','🌟']){
   [0,150,300].slice(0, big?3:1).forEach(d=>setTimeout(()=>fx('ring', x, y), d));
   for(let i=0;i<(big?12:5);i++){
     const a = i/(big?12:5)*Math.PI*2 + Math.random(), r = (big?14:8) + Math.random()*6;
-    fx('spark', x, y, {'--x':`${Math.cos(a)*r}cqw`, '--y':`${-Math.sin(a)*r}cqw`}).textContent = pick(['⭐','✨','💥','🌟']);
+    fx('spark', x, y, {'--x':`${Math.cos(a)*r}cqw`, '--y':`${-Math.sin(a)*r}cqw`}).textContent = pick(icons);
   }
 }
 function flashShake(){
@@ -1024,10 +1243,77 @@ const SPECIALS = [
       return 2200;
   } },
 ];
+/* 한글 놀이 보스 필살기 */
+const FIST = `<svg viewBox="0 0 150 64"><path d="M0 32 Q28 6 62 18 L62 46 Q28 58 0 32Z" fill="#ff9a00"/><path d="M22 32 Q42 20 62 24 L62 40 Q42 44 22 32Z" fill="#ffe066"/><rect x="58" y="14" width="30" height="36" rx="6" fill="#c3cde0" stroke="#1d2340" stroke-width="4"/><rect x="84" y="4" width="62" height="56" rx="14" fill="#ffffff" stroke="#1d2340" stroke-width="4"/><rect x="84" y="20" width="12" height="24" fill="#2457c5"/><path d="M108 6 v52 M126 6 v52" stroke="#1d2340" stroke-width="3"/></svg>`;
+const HANGUL_SPECIALS = [
+  { name:'가나다 글자 폭탄!', pose:'pose-missile', go(){
+      const ls = ['가','나','다','라','마','바','사','아','자'], cs = ['#ff5a3c','#ffc93c','#4fc3f7','#9ccc65','#ff6b8b','#b388ff'];
+      for(let i=0;i<9;i++) later(()=>{
+        const sx = 14 + (i%3)*5, sy = 46 + (i%2)*3;
+        const m = fx('letterbomb', sx, sy, {'--x':`${VX-sx+rand(-5,5)}cqw`, '--y':`${sy-VY+rand(-6,6)}cqw`, '--arc':`${-rand(10,22)}cqw`, '--c':cs[i%cs.length]});
+        m.textContent = ls[i];
+        tone(500+i*60,.1,'triangle',.05);
+        later(()=>{ hitFx(VX+rand(-5,5), VY+rand(-6,6), false, ['💥','✨',ls[i]]); SFX.boom(); }, 600);
+      }, 800 + i*120);
+      return 800 + 8*120 + 600;
+  } },
+  { name:'풍선 펑펑 폭탄!', pose:'pose-beam', go(){
+      const cs = ['#ff6b8b','#ffa62b','#4fc3f7','#9ccc65','#b388ff','#ffe066','#ff5a3c'];
+      for(let i=0;i<7;i++) later(()=>{
+        const sx = 24, sy = 34 + rand(-3,3);
+        fx('bfly', sx, sy, {'--x':`${VX-sx+rand(-6,6)}cqw`, '--y':`${sy-VY+rand(-8,8)}cqw`, '--c':cs[i]});
+        tone(300+i*80,.2,'sine',.06,0,600+i*80);
+        later(()=>{ hitFx(VX+rand(-6,6), VY+rand(-8,8), false, ['🎈','💥','✨']); tone(1200,.06,'square',.06,0,300); fx('pow', VX+rand(-8,4), VY+rand(4,14)).textContent = '펑!'; }, 1000);
+      }, 800 + i*160);
+      later(()=>flashShake(), 800 + 6*160 + 1000);
+      return 800 + 6*160 + 1000;
+  } },
+  { name:'로켓 주먹 발사!', pose:'pose-rocket', go(){
+      [0,1].forEach(i=>later(()=>{
+        const sx = 30, sy = 34 + i*6;
+        fx('rocket', sx, sy, {'--x':`${VX-sx-4}cqw`, '--y':`${sy-VY-i*4}cqw`}).innerHTML = FIST;
+        tone(150,.55,'sawtooth',.07,0,900);
+        later(()=>{ flashShake(); SFX.boom(); hitFx(VX-2, VY+i*4, i===1); }, 550);
+      }, 800 + i*450));
+      return 800 + 450 + 550;
+  } },
+];
+/* 색깔 놀이 보스 필살기 */
+const COLOR_SPECIALS = [
+  { name:'물감 대포 발사!', pose:'pose-beam', go(){
+      const cs = COLORS.map(x=>x.c);
+      for(let i=0;i<10;i++) later(()=>{
+        const sx = 26, sy = 36 + (i%3)*2, c = cs[i%cs.length];
+        fx('paint', sx, sy, {'--x':`${VX-sx+rand(-6,6)}cqw`, '--y':`${sy-VY+rand(-8,8)}cqw`, '--arc':`${-rand(6,16)}cqw`, '--c':c});
+        tone(260+i*40,.1,'square',.04,0,520);
+        later(()=>{ fx('splat', VX+rand(-7,7), VY+rand(-9,9), {'--c':c}); tone(140,.15,'sine',.08,0,60); }, 600);
+      }, 800 + i*110);
+      later(()=>{ flashShake(); hitFx(VX, VY, true, ['🎨','🌈','✨']); }, 800 + 9*110 + 600);
+      return 800 + 9*110 + 600;
+  } },
+  { name:'데굴데굴 눈덩이!', pose:'pose-missile', go(){
+      later(()=>{ const b = $('snowball'); b.classList.remove('go'); void b.offsetWidth; b.classList.add('go'); tone(200,.6,'triangle',.06,0,500); }, 700);
+      later(()=>tone(120,.8,'sawtooth',.05,0,60), 1300);
+      later(()=>{ $('snowball').classList.remove('go'); flashShake(); SFX.boom(); hitFx(VX, VY, true, ['❄️','⛄','✨','💥']); }, 2200);
+      return 2200;
+  } },
+  { name:'꽁꽁 얼음 폭풍!', pose:'pose-spin', go(){
+      for(let i=0;i<18;i++) later(()=>{
+        const sx = 16 + rand(-6,6), sy = 34 + rand(-8,8);
+        fx('flake', sx, sy, {'--x':`${VX-sx+rand(-8,8)}cqw`, '--y':`${sy-VY+rand(-10,10)}cqw`}).textContent = pick(['❄️','❄️','💎']);
+        tone(1400+rand(0,600),.08,'sine',.03);
+      }, 700 + i*70);
+      later(()=>{ $('villain').className = 'frozen'; tone(1800,.5,'triangle',.05,0,900); }, 1700);
+      later(()=>{ flashShake(); SFX.boom(); hitFx(VX, VY, true, ['🧊','❄️','💎','✨']); }, 2500);
+      return 2500;
+  } },
+];
+const SPECIAL_SETS = {numbers:SPECIALS, hangul:HANGUL_SPECIALS, colors:COLOR_SPECIALS};
 function finisher(){
   state.locked = true; state.power = 100; drawGauge();
   const robot = $('boss-robot'), boss = $('boss');
-  const sp = SPECIALS[Math.min(SPECIALS.length-1, 3 - state.hp)];
+  const set = SPECIAL_SETS[mod().id] || SPECIALS;
+  const sp = set[Math.min(set.length-1, 3 - state.hp)];
   // 1) 기 모으기: 화면이 어두워지고 빛이 가슴으로 모인다
   $('fxdark').classList.add('on'); $('speed').classList.add('on');
   robot.classList.add('charge');
@@ -1050,7 +1336,7 @@ function finisher(){
   later(()=>{
     $('special').hidden = true;
     $('fxdark').classList.remove('on'); $('speed').classList.remove('on');
-    robot.classList.remove('charge','pose-beam','pose-missile','pose-sword'); boss.classList.remove('shake');
+    robot.classList.remove('charge', ...[...robot.classList].filter(c=>c.startsWith('pose-'))); boss.classList.remove('shake');
     if(state.hp > 0){
       state.power = 0; drawGauge(); state.locked = false;
       $('villain').className = '';
@@ -1094,7 +1380,7 @@ function press(d, repeat){
       state.moduleIdx = (state.moduleIdx + (d==='left'?-1:1) + MODULES.length) % MODULES.length;
       drawCards(); SFX.move(); say(MODULES[state.moduleIdx].title);
     }else if(d==='up'){
-      if(!mod().ready){ SFX.wrong(); say('이건 곧 나와요! 숫자 놀이를 해 볼까?'); return; }
+      if(!mod().ready){ SFX.wrong(); say('이건 곧 나와요!'); return; }
       state.stage = 0; state.team = 0; state.stars = 0;
       goto('intro');
     }
@@ -1127,7 +1413,8 @@ $('title').addEventListener('pointerdown', ()=>{ audio(); if(state.scene==='titl
 
 /* ---------- 게임 루프 ---------- */
 const GATE_TIME = 6.5;   // 문이 차까지 오는 시간(초)
-const GATE_TRAVEL = 17;  // cqw
+const GATE_TRAVEL = {road:[0,17], ski:[0,17], balloon:[-22,20]};  // 문(풍선)이 출발하는 높이와 차에 닿는 높이 (cqw)
+const gateTravel = () => GATE_TRAVEL[mod().style] || GATE_TRAVEL.road;
 let last = performance.now();
 function loop(now){
   const dt = Math.min(.05, (now-last)/1000); last = now;
@@ -1140,7 +1427,8 @@ function loop(now){
     $('car').classList.toggle('boost', fast);
     if(state.gateOn){
       state.gateT += dt*spd/GATE_TIME;
-      $('gates').style.top = (Math.min(1,state.gateT)*GATE_TRAVEL) + 'cqw';
+      const [from,to] = gateTravel();
+      $('gates').style.top = (from + Math.min(1,state.gateT)*(to-from)) + 'cqw';
       if(state.gateT >= 1) resolveGate();
     }
   }
